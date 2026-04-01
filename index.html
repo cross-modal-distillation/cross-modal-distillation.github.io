@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Paper Title</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <style>
     :root {
       --bg: #0b0b0b;
-      --panel: #161616;
-      --panel-2: #1f1f1f;
-      --text: #f4f4f4;
+      --text: #f5f5f5;
       --muted: #cfcfcf;
-      --border: #2a2a2a;
-      --button: #2b2b2b;
+      --border: #666;
+      --button-bg: #2f2f2f;
       --button-hover: #3a3a3a;
+      --panel: #1a1a1a;
     }
 
     * {
@@ -38,55 +38,84 @@
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 40px 20px 80px;
+      padding: 36px 20px 80px;
     }
 
     .hero {
       text-align: center;
-      margin-bottom: 36px;
     }
 
     h1 {
-      font-size: 2.8rem;
-      margin: 0 0 10px;
+      font-size: 2.9rem;
+      line-height: 1.2;
+      margin: 0 0 12px;
       font-weight: 700;
     }
 
     .venue {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 700;
+      margin-bottom: 26px;
+    }
+
+    .authors-grid {
+      display: flex;
+      justify-content: center;
+      gap: 34px;
+      flex-wrap: wrap;
       margin-bottom: 20px;
     }
 
-    .authors {
-      font-size: 1.2rem;
-      margin-bottom: 18px;
-      line-height: 2;
+    .author {
+      text-align: center;
+      min-width: 140px;
     }
 
-    .authors a {
-      color: var(--text);
+    .author-name {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .author-name a {
+      color: white;
       text-decoration: none;
-      border-bottom: 1px solid #666;
-      margin: 0 10px;
-      white-space: nowrap;
+      border-bottom: 1px solid #777;
     }
 
-    .authors a:hover {
+    .author-name a:hover {
       border-bottom-color: white;
+    }
+
+    .author-links {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .author-links a {
+      color: var(--muted);
+      text-decoration: none;
+      margin: 0 4px;
+      border-bottom: 1px solid transparent;
+    }
+
+    .author-links a:hover {
+      color: white;
+      border-bottom-color: #999;
     }
 
     .affiliation-block {
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       gap: 14px;
-      margin-bottom: 28px;
       flex-wrap: wrap;
+      margin: 16px 0 28px;
     }
 
     .affiliation-block img {
-      height: 48px;
+      height: 46px;
       width: auto;
       background: white;
       padding: 4px;
@@ -94,29 +123,33 @@
     }
 
     .affiliation-text {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
     }
 
     .button-row {
       display: flex;
       justify-content: center;
-      gap: 14px;
+      gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 40px;
+      margin: 24px 0 40px;
     }
 
     .pill-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      padding: 12px 22px;
+      min-width: 110px;
+      height: 50px;
+      padding: 0 22px;
       border-radius: 999px;
-      background: var(--button);
+      background: var(--button-bg);
       color: white;
       text-decoration: none;
+      font-size: 1rem;
       font-weight: 600;
-      border: 1px solid #3a3a3a;
-      transition: transform 0.15s ease, background 0.15s ease;
+      border: 1px solid var(--border);
+      transition: background 0.15s ease, transform 0.15s ease;
     }
 
     .pill-btn:hover {
@@ -125,7 +158,8 @@
     }
 
     .pill-btn i {
-      font-size: 1rem;
+      font-size: 1.05rem;
+      line-height: 1;
     }
 
     .main-image {
@@ -133,29 +167,28 @@
       width: 100%;
       max-width: 1000px;
       margin: 0 auto 28px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
+      border-radius: 8px;
+      border: 1px solid #2b2b2b;
     }
 
     section {
-      margin-top: 48px;
+      margin-top: 52px;
     }
 
     h2 {
       font-size: 2rem;
-      margin-bottom: 14px;
+      margin: 0 0 14px;
     }
 
     p {
       font-size: 1.08rem;
-      color: var(--text);
       margin: 0;
     }
 
     .bibtex-box {
       position: relative;
-      background: linear-gradient(180deg, var(--panel-2), var(--panel));
-      border: 1px solid var(--border);
+      background: var(--panel);
+      border: 1px solid #2b2b2b;
       border-radius: 14px;
       padding: 24px;
       margin-top: 14px;
@@ -166,19 +199,19 @@
       margin: 0;
       white-space: pre-wrap;
       word-wrap: break-word;
-      font-size: 1rem;
       color: #f1f1f1;
+      font-size: 1rem;
     }
 
     .copy-btn {
       position: absolute;
       top: 14px;
       right: 14px;
-      border: 1px solid #444;
-      background: #2a2a2a;
+      padding: 8px 14px;
+      border: 1px solid #555;
+      background: #303030;
       color: white;
       border-radius: 8px;
-      padding: 8px 14px;
       cursor: pointer;
       font-weight: 600;
     }
@@ -196,16 +229,14 @@
         font-size: 1.3rem;
       }
 
-      .authors {
-        font-size: 1rem;
-      }
-
-      .affiliation-text {
-        font-size: 1rem;
+      .authors-grid {
+        gap: 18px;
       }
 
       .pill-btn {
-        padding: 10px 18px;
+        min-width: 100px;
+        height: 46px;
+        padding: 0 18px;
       }
     }
   </style>
@@ -216,41 +247,67 @@
       <h1>Your Paper Title Goes Here</h1>
       <div class="venue">CVPRW 2026 CVMI</div>
 
-      <div class="authors">
-        <a href="#" target="_blank">Arbel Hizmi</a>
-        <a href="#" target="_blank">Artemii Bakulin</a>
-        <a href="#" target="_blank">Shai Bagon</a>
-        <a href="#" target="_blank">Nir Yosef</a>
+      <div class="authors-grid">
+        <div class="author">
+          <div class="author-name"><a href="https://example.com" target="_blank">First Author</a></div>
+          <div class="author-links">
+            <a href="https://example.com" target="_blank">Website</a> |
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="author">
+          <div class="author-name"><a href="https://example.com" target="_blank">Second Author</a></div>
+          <div class="author-links">
+            <a href="https://example.com" target="_blank">Website</a> |
+            <a href="https://scholar.google.com" target="_blank">Scholar</a>
+          </div>
+        </div>
+
+        <div class="author">
+          <div class="author-name"><a href="https://example.com" target="_blank">Third Author</a></div>
+          <div class="author-links">
+            <a href="https://example.com" target="_blank">Website</a>
+          </div>
+        </div>
+
+        <div class="author">
+          <div class="author-name"><a href="https://example.com" target="_blank">Fourth Author</a></div>
+          <div class="author-links">
+            <a href="https://example.com" target="_blank">Website</a> |
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+          </div>
+        </div>
       </div>
 
       <div class="affiliation-block">
-        <img src="assets/weizmann_logo.png" alt="Weizmann Institute logo">
+        <img src="assets/weizmann-logo.png" alt="Weizmann Institute logo">
         <div class="affiliation-text">Weizmann Institute of Science</div>
       </div>
 
       <div class="button-row">
         <a class="pill-btn" href="PASTE_PAPER_LINK_HERE" target="_blank">
-          <i class="fa-solid fa-file-pdf"></i>
+          <i class="bi bi-file-earmark-pdf-fill"></i>
           <span>Paper</span>
         </a>
 
-        <a class="pill-btn" href="PASTE_SUPPLEMENTARY_LINK_HERE" target="_blank">
-          <i class="fa-solid fa-file-lines"></i>
+        <a class="pill-btn" href="PASTE_SUPP_LINK_HERE" target="_blank">
+          <i class="bi bi-file-earmark-text-fill"></i>
           <span>Supp</span>
         </a>
 
         <a class="pill-btn" href="PASTE_VIDEO_LINK_HERE" target="_blank">
-          <i class="fa-brands fa-youtube"></i>
+          <i class="bi bi-youtube"></i>
           <span>Video</span>
         </a>
 
         <a class="pill-btn" href="https://github.com/arbelhizmi/cross-modal-distillation" target="_blank">
-          <i class="fa-brands fa-github"></i>
+          <i class="bi bi-github"></i>
           <span>Code</span>
         </a>
 
         <a class="pill-btn" href="#bibtex">
-          <i class="fa-solid fa-quote-right"></i>
+          <i class="bi bi-quote"></i>
           <span>BibTeX</span>
         </a>
       </div>
